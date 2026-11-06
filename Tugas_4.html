@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eksaaa - Web Developer Portfolio | Tugas 4</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap 5.3.3 CSS CDN -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Bootstrap Icons CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+
+  <style>
+    :root {
+      --primary-orange: #fd6f00;
+      --primary-orange-hover: #e06200;
+      --primary-orange-light: #fff2e8;
+      --primary-orange-rgb: 253, 111, 0;
+      --text-dark: #1e1e1e;
+      --text-muted: #6c757d;
+      --bg-light: #fbfbfb;
+      --card-border: #f0f0f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* ==========================================================================
+       Utility & Global Classes
+       ========================================================================== */
+    .text-orange {
+      color: var(--primary-orange) !important;
+    }
+
+    .bg-orange {
+      background-color: var(--primary-orange) !important;
+    }
+
+    .btn-orange {
+      background-color: var(--primary-orange);
+      color: #ffffff;
+      border: 2px solid var(--primary-orange);
+      font-weight: 500;
+      border-radius: 6px;
+      padding: 10px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-orange:hover,
+    .btn-orange:focus {
+      background-color: var(--primary-orange-hover);
+      border-color: var(--primary-orange-hover);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(253, 111, 0, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-orange {
+      background-color: transparent;
+      color: var(--primary-orange);
+      border: 2px solid var(--primary-orange);
+      font-weight: 500;
+      border-radius: 6px;
+      padding: 10px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-orange:hover {
+      background-color: var(--primary-orange);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(253, 111, 0, 0.25);
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: #1e1e1e;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       1. Navbar Styling
+       ========================================================================== */
+    .custom-navbar {
+      background-color: #ffffff;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.5px;
+      color: #1e1e1e;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .navbar-brand .brand-logo-icon {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--primary-orange), #ff8c33);
+      color: white;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #2b2b2b !important;
+      padding: 8px 16px !important;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-orange) !important;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 16px;
+      right: 16px;
+      height: 2px;
+      background-color: var(--primary-orange);
+      border-radius: 2px;
+    }
+
+    .navbar-toggler {
+      border: 1px solid rgba(253, 111, 0, 0.3);
+      padding: 6px 10px;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(253, 111, 0, 0.25);
+    }
+
+    /* ==========================================================================
+       2. Hero Section
+       ========================================================================== */
+    .hero-section {
+      padding: 70px 0 90px 0;
+      overflow: hidden;
+    }
+
+    .hero-greeting {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 4px;
+    }
+
+    .hero-name {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-orange);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #1e1e1e;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+      max-width: 520px;
+    }
+
+    .hero-avatar-wrapper {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .hero-avatar-circle {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ffffff;
+      box-shadow: 0 15px 35px rgba(253, 111, 0, 0.2);
+      background-color: var(--primary-orange-light);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-avatar-bg-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(253, 111, 0, 0.25) 0%, rgba(253, 111, 0, 0) 70%);
+      z-index: 1;
+    }
+
+    .social-icons-wrapper {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .social-icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e1e1e;
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icon-btn:hover {
+      background-color: var(--primary-orange);
+      color: #ffffff;
+      border-color: var(--primary-orange);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(253, 111, 0, 0.25);
+    }
+
+    /* ==========================================================================
+       3. About Me Section (6 Biodata Grid)
+       ========================================================================== */
+    .about-section {
+      padding: 80px 0;
+      background-color: var(--bg-light);
+    }
+
+    .biodata-card {
+      background-color: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+    }
+
+    .biodata-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(253, 111, 0, 0.08);
+      border-color: rgba(253, 111, 0, 0.3);
+    }
+
+    .biodata-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background-color: var(--primary-orange-light);
+      color: var(--primary-orange);
+      font-size: 1.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .biodata-card:hover .biodata-icon {
+      background-color: var(--primary-orange);
+      color: #ffffff;
+    }
+
+    .biodata-info .biodata-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary-orange);
+      margin-bottom: 2px;
+    }
+
+    .biodata-info .biodata-val {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 0;
+      word-break: break-word;
+    }
+
+    /* ==========================================================================
+       4. Services Section
+       ========================================================================== */
+    .services-section {
+      padding: 80px 0;
+      background-color: #ffffff;
+    }
+
+    .service-box {
+      background-color: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .service-box:hover {
+      border-color: var(--primary-orange);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(253, 111, 0, 0.09);
+    }
+
+    .service-box .service-icon {
+      font-size: 2.4rem;
+      color: var(--primary-orange);
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    .service-box h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* ==========================================================================
+       5. My Projects Section
+       ========================================================================== */
+    .projects-section {
+      padding: 80px 0 100px 0;
+      background-color: var(--bg-light);
+    }
+
+    .project-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .project-filter-btn {
+      border: 1px solid #e0e0e0;
+      background-color: #ffffff;
+      color: #495057;
+      padding: 8px 22px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .project-filter-btn:hover,
+    .project-filter-btn.active {
+      background-color: var(--primary-orange);
+      color: #ffffff;
+      border-color: var(--primary-orange);
+      box-shadow: 0 4px 12px rgba(253, 111, 0, 0.25);
+    }
+
+    .project-card {
+      background-color: #ffffff;
+      border: 1px solid #e9ecef;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(253, 111, 0, 0.12);
+      border-color: rgba(253, 111, 0, 0.35);
+    }
+
+    /* Mockup Browser Window Header */
+    .project-browser-bar {
+      background-color: #f3f4f6;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .browser-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .browser-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .browser-dot.dot-red {
+      background-color: #ff5f56;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .browser-dot.dot-yellow {
+      background-color: #ffbd2e;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .browser-dot.dot-green {
+      background-color: #27c93f;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+
+    .browser-address-bar {
+      flex-grow: 1;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      color: #64748b;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .browser-address-bar i {
+      font-size: 0.72rem;
+      color: #10b981;
+    }
+
+    .project-img-container {
+      position: relative;
+      overflow: hidden;
+      background-color: #1e293b;
+      height: 275px;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: block;
+    }
+
+    .project-card:hover .project-img {
+      transform: scale(1.04);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.15) 0%, rgba(253, 111, 0, 0.88) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-content {
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .project-category-badge {
+      color: var(--primary-orange);
+      background-color: var(--primary-orange-light);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(253, 111, 0, 0.2);
+    }
+
+    .project-status-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #047857;
+      background-color: #d1fae5;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1e1e1e;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .project-tag-pill {
+      font-size: 0.74rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background-color: #f8fafc;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ==========================================================================
+       7. Contact & Footer Section
+       ========================================================================== */
+    .contact-section {
+      padding: 80px 0;
+      background-color: var(--bg-light);
+    }
+
+    .contact-form-card {
+      background-color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 0 0.25rem rgba(253, 111, 0, 0.2);
+    }
+
+    .site-footer {
+      background-color: #111111;
+      color: #a0a0a0;
+      padding: 40px 0 25px 0;
+      font-size: 0.92rem;
+    }
+
+    .footer-logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #ffffff;
+    }
+
+    /* ==========================================================================
+       8. Modal Enhancements
+       ========================================================================== */
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary-orange), #ff8c33);
+      color: #ffffff;
+      border-bottom: none;
+    }
+
+    .modal-header .btn-close {
+      filter: brightness(0) invert(1);
+    }
+
+    .modal-content {
+      border: none;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ==========================================================================
+       9. Responsive Media Queries
+       ========================================================================== */
+    @media (max-width: 991.98px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .hero-section {
+        text-align: center;
+        padding: 50px 0 70px 0;
+      }
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-avatar-circle {
+        width: 280px;
+        height: 280px;
+      }
+      .hero-avatar-bg-glow {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.85rem;
+      }
+      .hero-avatar-circle {
+        width: 240px;
+        height: 240px;
+      }
+      .hero-avatar-bg-glow {
+        width: 270px;
+        height: 270px;
+      }
+      .project-filters {
+        gap: 8px;
+      }
+      .project-filter-btn {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100">
+
+  <!-- ==========================================================================
+       1. NAVBAR (Responsive with Collapse & Toggler)
+       ========================================================================== -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg custom-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <span class="brand-logo-icon">E</span>
+        <span>Eksaa <span class="text-orange">UI</span></span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav Links & CTA -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#servis">Servis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#project">Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <!-- Download CV Button triggering Modal -->
+          <button
+            type="button"
+            class="btn btn-outline-orange btn-sm px-3"
+            data-bs-toggle="modal"
+            data-bs-target="#downloadCvModal"
+          >
+            <i class="bi bi-file-earmark-arrow-down me-1"></i> Download CV
+          </button>
+          <!-- Hire Me CTA Button triggering Modal -->
+          <button
+            type="button"
+            class="btn btn-orange btn-sm px-3"
+            data-bs-toggle="modal"
+            data-bs-target="#hireModal"
+          >
+            Hire Me
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
+  <header id="home" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <!-- Hero Left Column: Info & CTA -->
+        <div class="col-lg-6 order-2 order-lg-1">
+          <p class="hero-greeting">Hi, I am</p>
+          <p class="hero-name">Eksaa</p>
+          <h1 class="hero-title">Web Developer</h1>
+          <p class="hero-desc">
+            Mahasiswa teknik informatika yang suka mempelajari hal baru,
+            terutama dalam pengembangan web. Saya bersemangat untuk menciptakan 
+            pengalaman digital yang menarik dan fungsional.
+          </p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+            <button
+              type="button"
+              class="btn btn-orange px-4 py-2"
+              data-bs-toggle="modal"
+              data-bs-target="#hireModal"
+            >
+              Hire Me
+            </button>
+            <a href="#project" class="btn btn-outline-orange px-4 py-2">
+              View Projects
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Avatar & Social Icons -->
+        <div class="col-lg-6 order-1 order-lg-2 text-center">
+          <div class="hero-avatar-wrapper">
+            <div class="hero-avatar-bg-glow"></div>
+            <img
+              src="fotoo/cyrene hsr.jpg"
+              alt="Foto Profil Eksaa"
+              class="hero-avatar-circle"
+              loading="lazy"
+              onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'320\' viewBox=\'0 0 320 320\'><rect width=\'100%\' height=\'100%\' fill=\'%23fff2e8\'/><circle cx=\'160\' cy=\'120\' r=\'55\' fill=\'%23fd6f00\'/><path d=\'M70,280 C90,195 230,195 250,280 Z\' fill=\'%23fd6f00\'/></svg>';"
+            />
+          </div>
+
+          <!-- Social Media Icons Bar -->
+          <div class="social-icons-wrapper">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Twitter X"
+              title="Twitter X"
+            >
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a
+              href="https://dribbble.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Dribbble"
+              title="Dribbble"
+            >
+              <i class="bi bi-dribbble"></i>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. ABOUT ME SECTION (6 Item Biodata Grid)
+       ========================================================================== -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          Mahasiswa Teknik Informatika yang suka eksplor hal baru.
+        </p>
+      </div>
+
+      <!-- 6 Biodata Boxes Grid (3 Kolom Desktop, 2 Kolom Tablet, 1 Kolom Mobile) -->
+      <div class="row g-4">
+        <!-- Item 1: Full Name -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="biodata-card">
+            <div class="biodata-icon">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <div class="biodata-info">
+              <div class="biodata-label">Full Name</div>
+              <div class="biodata-val">Eksaa</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Education -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="biodata-card">
+            <div class="biodata-icon">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <div class="biodata-info">
+              <div class="biodata-label">Education</div>
+              <div class="biodata-val">Universitas Indraprastas PGRI</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: Pekerjaan -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="biodata-card">
+            <div class="biodata-icon">
+              <i class="bi bi-briefcase-fill"></i>
+            </div>
+            <div class="biodata-info">
+              <div class="biodata-label">Pekerjaan</div>
+              <div class="biodata-val">Freelancer / Mahasiswa</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: Contact -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="biodata-card">
+            <div class="biodata-icon">
+              <i class="bi bi-envelope-at-fill"></i>
+            </div>
+            <div class="biodata-info">
+              <div class="biodata-label">Contact</div>
+              <div class="biodata-val">eksasupriyadi20@gmail.com</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5: Hobi -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="biodata-card">
+            <div class="biodata-icon">
+              <i class="bi bi-controller"></i>
+            </div>
+            <div class="biodata-info">
+              <div class="biodata-label">Hobi</div>
+              <div class="biodata-val">Membaca Buku, Coding, Traveling</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: Alamat -->
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="biodata-card">
+            <div class="biodata-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="biodata-info">
+              <div class="biodata-label">Alamat</div>
+              <div class="biodata-val">Sukatani, Depok</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. SERVICES SECTION
+       ========================================================================== -->
+  <section id="servis" class="services-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Servis</h2>
+        <p class="section-subtitle">
+          Layanan spesialis pengembangan aplikasi web modern dengan standar industri dan performa tinggi.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-box">
+            <div class="service-icon"><i class="bi bi-window-fullscreen"></i></div>
+            <h4>Web Design & UI/UX</h4>
+            <p class="text-muted mb-0">
+              Mendesain antarmuka yang intuitif, bersih, dan memikat pengguna dengan riset UX mendalam.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-box">
+            <div class="service-icon"><i class="bi bi-code-slash"></i></div>
+            <h4>Frontend Development</h4>
+            <p class="text-muted mb-0">
+              Membangun website responsif secepat kilat menggunakan Bootstrap 5, HTML5, CSS3, & Modern JS.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12">
+          <div class="service-box">
+            <div class="service-icon"><i class="bi bi-phone"></i></div>
+            <h4>Responsive Web App</h4>
+            <p class="text-muted mb-0">
+              Optimalisasi tampilan dan interaksi di semua resolusi mulai dari smartphone, tablet, hingga desktop.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. MY PROJECTS SECTION (Filter Pills + 3 Cards + Popup Modal)
+       ========================================================================== -->
+  <section id="project" class="projects-section">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">
+          Berikut adalah beberapa proyek yang telah saya kerjakan.
+        </p>
+      </div>
+
+      <!-- Project Filter Category Pills -->
+      <div class="project-filters">
+        <button type="button" class="project-filter-btn" data-filter="all">All</button>
+        <button type="button" class="project-filter-btn" data-filter="uiux">UI/UX</button>
+        <button type="button" class="project-filter-btn active" data-filter="webdesign">Web Design</button>
+        <button type="button" class="project-filter-btn" data-filter="appdesign">App Design</button>
+        <button type="button" class="project-filter-btn" data-filter="graphic">Graphic Design</button>
+      </div>
+
+      <!-- 2 Project Cards Grid (Simetris 2 Kolom Seimbang & Terpusat) -->
+      <div class="row g-4 justify-content-center">
+        <!-- Project 1: Aplikasi POS & Management Toko -->
+        <div class="col-lg-6 col-md-6 col-12 project-item" data-category="webdesign">
+          <div class="project-card">
+            <!-- Browser Window Mockup Frame Header -->
+            <div class="project-browser-bar">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="browser-address-bar">
+                <i class="bi bi-lock-fill"></i>
+                <span>https://pos-management.web.app</span>
+              </div>
+              <div class="text-secondary opacity-75">
+                <i class="bi bi-box-arrow-up-right small"></i>
+              </div>
+            </div>
+
+            <!-- Image Container with Overlay -->
+            <div class="project-img-container">
+              <img
+                src="fotoo/Foto1.png"
+                alt="Aplikasi POS & Management Toko"
+                class="project-img"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'100%\' height=\'100%\' fill=\'%23f3f4f6\'/><text x=\'300\' y=\'200\' text-anchor=\'middle\' fill=\'%23fd6f00\' font-family=\'sans-serif\' font-size=\'22\' font-weight=\'bold\'>Aplikasi POS Preview</text></svg>';"
+              />
+              <div class="project-overlay">
+                <button
+                  type="button"
+                  class="btn btn-light fw-bold text-orange px-4 py-2 rounded-pill shadow-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#projectModal1"
+                >
+                  <i class="bi bi-eye-fill me-1"></i> Quick View
+                </button>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="project-content">
+              <div class="project-meta-top">
+                <span class="project-category-badge">Web Application</span>
+                <span class="project-status-badge">
+                  <i class="bi bi-check-circle-fill"></i> Live Project
+                </span>
+              </div>
+              <h3 class="project-title">Aplikasi POS & Management Toko</h3>
+              <p class="project-desc">
+                Sistem aplikasi kasir dan manajemen operasional toko berbasis web dengan pelaporan transaksi otomatis, kontrol inventaris produk, dan antarmuka kasir cepat.
+              </p>
+
+              <!-- Tech Stack Badges -->
+              <div class="project-tags">
+                <span class="project-tag-pill"><i class="bi bi-bootstrap-fill text-primary"></i> Bootstrap 5</span>
+                <span class="project-tag-pill"><i class="bi bi-filetype-php text-primary"></i> PHP</span>
+                <span class="project-tag-pill"><i class="bi bi-database text-warning"></i> MySQL</span>
+                <span class="project-tag-pill"><i class="bi bi-filetype-js text-warning"></i> JavaScript</span>
+              </div>
+
+              <!-- Action Button -->
+              <button
+                type="button"
+                class="btn btn-outline-orange mt-auto w-100 fw-semibold d-flex align-items-center justify-content-center gap-2"
+                data-bs-toggle="modal"
+                data-bs-target="#projectModal1"
+              >
+                <span>Detail Proyek</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: PromptGen AI Generator -->
+        <div class="col-lg-6 col-md-6 col-12 project-item" data-category="webdesign">
+          <div class="project-card">
+            <!-- Browser Window Mockup Frame Header -->
+            <div class="project-browser-bar">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="browser-address-bar">
+                <i class="bi bi-lock-fill"></i>
+                <span>https://promptgen.ai</span>
+              </div>
+              <div class="text-secondary opacity-75">
+                <i class="bi bi-box-arrow-up-right small"></i>
+              </div>
+            </div>
+
+            <!-- Image Container with Overlay -->
+            <div class="project-img-container">
+              <img
+                src="fotoo/Foto2.png"
+                alt="PromptGen AI Prompt Generator"
+                class="project-img"
+                loading="lazy"
+                onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'100%\' height=\'100%\' fill=\'%23f3f4f6\'/><text x=\'300\' y=\'200\' text-anchor=\'middle\' fill=\'%23fd6f00\' font-family=\'sans-serif\' font-size=\'22\' font-weight=\'bold\'>PromptGen Preview</text></svg>';"
+              />
+              <div class="project-overlay">
+                <button
+                  type="button"
+                  class="btn btn-light fw-bold text-orange px-4 py-2 rounded-pill shadow-sm"
+                  data-bs-toggle="modal"
+                  data-bs-target="#projectModal2"
+                >
+                  <i class="bi bi-eye-fill me-1"></i> Quick View
+                </button>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="project-content">
+              <div class="project-meta-top">
+                <span class="project-category-badge">AI Web App</span>
+                <span class="project-status-badge">
+                  <i class="bi bi-cpu-fill"></i> AI Powered
+                </span>
+              </div>
+              <h3 class="project-title">PromptGen</h3>
+              <p class="project-desc">
+                Aplikasi web interaktif untuk menghasilkan dan menyusun prompt kecerdasan buatan berkualitas tinggi dengan template teroptimasi dan kustomisasi parameter.
+              </p>
+
+              <!-- Tech Stack Badges -->
+              <div class="project-tags">
+                <span class="project-tag-pill"><i class="bi bi-bootstrap-fill text-primary"></i> Bootstrap 5</span>
+                <span class="project-tag-pill"><i class="bi bi-filetype-js text-warning"></i> Modern JS</span>
+                <span class="project-tag-pill"><i class="bi bi-robot text-danger"></i> OpenAI API</span>
+                <span class="project-tag-pill"><i class="bi bi-stars text-primary"></i> Prompt Eng</span>
+              </div>
+
+              <!-- Action Button -->
+              <button
+                type="button"
+                class="btn btn-outline-orange mt-auto w-100 fw-semibold d-flex align-items-center justify-content-center gap-2"
+                data-bs-toggle="modal"
+                data-bs-target="#projectModal2"
+              >
+                <span>Detail Proyek</span>
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. CONTACT SECTION
+       ========================================================================== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          Punya ide proyek atau ingin berdiskusi? Jangan ragu untuk mengirimkan pesan kepada saya.
+        </p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-12">
+          <div class="contact-form-card">
+            <form id="mainContactForm" onsubmit="event.preventDefault(); handleContactSubmit();">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label fw-semibold">Nama Lengkap</label>
+                  <input
+                    type="text"
+                    class="form-control py-2"
+                    id="contactName"
+                    placeholder="Masukkan nama Anda"
+                    required
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label fw-semibold">Alamat Email</label>
+                  <input
+                    type="email"
+                    class="form-control py-2"
+                    id="contactEmail"
+                    placeholder="nama@email.com"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="contactSubject" class="form-label fw-semibold">Subjek</label>
+                  <input
+                    type="text"
+                    class="form-control py-2"
+                    id="contactSubject"
+                    placeholder="Topik pesan Anda"
+                    required
+                  />
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label fw-semibold">Pesan</label>
+                  <textarea
+                    class="form-control"
+                    id="contactMessage"
+                    rows="4"
+                    placeholder="Tuliskan kebutuhan proyek Anda di sini..."
+                    required
+                  ></textarea>
+                </div>
+                <div class="col-12 text-center mt-4">
+                  <button type="submit" class="btn btn-orange px-5 py-2">
+                    <i class="bi bi-send-fill me-1"></i> Kirim Pesan
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container text-center">
+      <div class="footer-logo mb-3">
+        Eksaa <span class="text-orange">UI</span>
+      </div>
+      <p class="mb-3 text-secondary">
+        Crafting seamless & intuitive web experiences with modern frontend technologies.
+      </p>
+      <div class="d-flex justify-content-center gap-3 mb-4">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn">
+          <i class="bi bi-twitter-x"></i>
+        </a>
+        <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn">
+          <i class="bi bi-dribbble"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+      </div>
+      <hr class="border-secondary opacity-25 my-4" />
+      <p class="small text-secondary mb-0">
+        &copy; 2026 Eksaa UI.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       9. POPUP MODALS (Bootstrap 5)
+       ========================================================================== -->
+
+  <!-- Modal 1: Hire Me / Kontak Modal -->
+  <div
+    class="modal fade"
+    id="hireModal"
+    tabindex="-1"
+    aria-labelledby="hireModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="hireModalLabel">
+            <i class="bi bi-briefcase-fill me-2"></i>Hire Me / Kontak
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="text-muted small mb-4">
+            Isi formulir di bawah ini untuk memulai kerja sama pembuatan website atau konsultasi desain UI/UX.
+          </p>
+          <form id="hireForm" onsubmit="event.preventDefault(); handleHireSubmit();">
+            <div class="mb-3">
+              <label for="hireName" class="form-label fw-semibold">Nama Anda / Perusahaan</label>
+              <input
+                type="text"
+                class="form-control"
+                id="hireName"
+                placeholder="Contoh: PT Inovasi Digital"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="hireEmail" class="form-label fw-semibold">Email Kontak</label>
+              <input
+                type="email"
+                class="form-control"
+                id="hireEmail"
+                placeholder="kontak@perusahaan.com"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="hireService" class="form-label fw-semibold">Layanan yang Dibutuhkan</label>
+              <select class="form-select" id="hireService" required>
+                <option value="Web Design" selected>Web Design & Landing Page</option>
+                <option value="Frontend Development">Frontend Development (Bootstrap / React)</option>
+                <option value="UI/UX Redesign">UI/UX Redesign & Wireframing</option>
+                <option value="Full Project">Fullstack Web Application</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="hireMessage" class="form-label fw-semibold">Detail Kebutuhan Singkat</label>
+              <textarea
+                class="form-control"
+                id="hireMessage"
+                rows="3"
+                placeholder="Jelaskan ringkasan proyek, anggaran, atau timeline yang diharapkan..."
+                required
+              ></textarea>
+            </div>
+            <div class="d-grid mt-4">
+              <button type="submit" class="btn btn-orange py-2">
+                <i class="bi bi-check-circle-fill me-1"></i> Kirim Permintaan Kerja Sama
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Download CV Modal -->
+  <div
+    class="modal fade"
+    id="downloadCvModal"
+    tabindex="-1"
+    aria-labelledby="downloadCvModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="downloadCvModalLabel">
+            <i class="bi bi-file-earmark-person-fill me-2"></i>Download Curriculum Vitae
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body p-4 text-center">
+          <div class="mb-3 text-orange" style="font-size: 3rem;">
+            <i class="bi bi-file-earmark-pdf"></i>
+          </div>
+          <h5 class="fw-bold mb-2">Curriculum Vitae - Eksaa UI</h5>
+          <p class="text-muted small mb-4">
+            Format: PDF (Terbaru 2026) | Ukuran: 1.2 MB<br />
+            Mencakup riwayat pendidikan di Universitas Indraprastas PGRI, portofolio proyek web development, dan keahlian teknis.
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <button
+              type="button"
+              class="btn btn-orange px-4"
+              onclick="triggerCvDownload()"
+            >
+              <i class="bi bi-download me-1"></i> Unduh File Sekarang
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary px-4"
+              data-bs-dismiss="modal"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Detail Proyek 1 (Aplikasi POS & Management Toko) -->
+  <div
+    class="modal fade"
+    id="projectModal1"
+    tabindex="-1"
+    aria-labelledby="projectModal1Label"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="projectModal1Label">
+            <i class="bi bi-laptop me-2"></i>Aplikasi POS & Management Toko
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <img
+                src="fotoo/Foto1.png"
+                alt="Aplikasi POS & Management Toko"
+                class="img-fluid rounded-3 shadow-sm border"
+              />
+            </div>
+            <div class="col-md-6">
+              <span class="badge bg-orange mb-2">Web Application</span>
+              <h4 class="fw-bold">Aplikasi POS & Management Toko</h4>
+              <p class="text-muted small mb-3">
+                Sistem Point of Sale (POS) dan manajemen toko berbasis web yang dirancang untuk mempermudah transaksi kasir, pengawasan stok inventaris produk secara berkala, dan rekapitulasi laporan penjualan otomatis.
+              </p>
+              <div class="mb-3">
+                <span class="fw-semibold d-block small text-dark mb-1">Teknologi Digunakan:</span>
+                <span class="badge bg-light text-dark border me-1">Bootstrap 5</span>
+                <span class="badge bg-light text-dark border me-1">PHP</span>
+                <span class="badge bg-light text-dark border me-1">MySQL</span>
+                <span class="badge bg-light text-dark border">JavaScript</span>
+              </div>
+              <ul class="list-unstyled small text-muted mb-4">
+                <li><i class="bi bi-check2 text-orange me-2"></i>Antarmuka kasir cepat & responsif di tablet/desktop</li>
+                <li><i class="bi bi-check2 text-orange me-2"></i>Pencatatan transaksi dan cetak struk otomatis</li>
+                <li><i class="bi bi-check2 text-orange me-2"></i>Monitoring inventaris barang dan peringatan stok menipis</li>
+              </ul>
+              <div class="d-flex gap-2">
+                <button
+                  type="button"
+                  class="btn btn-orange btn-sm px-3"
+                  onclick="alert('Membuka live demo Aplikasi POS & Management Toko!')"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i> Live Demo
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-sm px-3"
+                  data-bs-dismiss="modal"
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Detail Proyek 2 (PromptGen) -->
+  <div
+    class="modal fade"
+    id="projectModal2"
+    tabindex="-1"
+    aria-labelledby="projectModal2Label"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="projectModal2Label">
+            <i class="bi bi-robot me-2"></i>PromptGen - AI Prompt Generator
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <img
+                src="fotoo/Foto2.png"
+                alt="PromptGen Preview"
+                class="img-fluid rounded-3 shadow-sm border"
+              />
+            </div>
+            <div class="col-md-6">
+              <span class="badge bg-orange mb-2">AI Web App</span>
+              <h4 class="fw-bold">PromptGen</h4>
+              <p class="text-muted small mb-3">
+                Aplikasi web interaktif untuk menghasilkan prompt AI yang efektif, terstruktur, dan kontekstual bagi para kreator konten, programmer, dan profesional bisnis.
+              </p>
+              <div class="mb-3">
+                <span class="fw-semibold d-block small text-dark mb-1">Teknologi Digunakan:</span>
+                <span class="badge bg-light text-dark border me-1">Bootstrap 5</span>
+                <span class="badge bg-light text-dark border me-1">Modern JavaScript</span>
+                <span class="badge bg-light text-dark border me-1">OpenAI API</span>
+                <span class="badge bg-light text-dark border">Prompt Engineering</span>
+              </div>
+              <ul class="list-unstyled small text-muted mb-4">
+                <li><i class="bi bi-check2 text-orange me-2"></i>Katalog template prompt dari berbagai domain kebutuhan</li>
+                <li><i class="bi bi-check2 text-orange me-2"></i>Kustomisasi variabel dinamis dengan one-click copy</li>
+                <li><i class="bi bi-check2 text-orange me-2"></i>Desain modern, ringan, dan ramah pengguna mobile</li>
+              </ul>
+              <div class="d-flex gap-2">
+                <button
+                  type="button"
+                  class="btn btn-orange btn-sm px-3"
+                  onclick="alert('Membuka live demo PromptGen!')"
+                >
+                  <i class="bi bi-box-arrow-up-right me-1"></i> Live Demo
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-sm px-3"
+                  data-bs-dismiss="modal"
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==========================================================================
+       10. SCRIPTS & LOGIC
+       ========================================================================== -->
+  <!-- Bootstrap 5.3.3 JS Bundle CDN (Termasuk Popper) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    // Tutup navbar collapse secara otomatis saat tautan nav-link diklik di tampilan mobile
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarContent');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) {
+            bsCollapse.hide();
+          }
+        }
+      });
+    });
+
+    // Interaktivitas Filter Proyek
+    const filterButtons = document.querySelectorAll('.project-filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        projectItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Simulasi Pengiriman Formulir Hire Me
+    function handleHireSubmit() {
+      const name = document.getElementById('hireName').value;
+      const modalEl = document.getElementById('hireModal');
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+
+      alert(`Terima kasih, ${name}! Permintaan kerja sama Anda telah berhasil terkirim. Kami akan menghubungi Anda segera.`);
+      document.getElementById('hireForm').reset();
+    }
+
+    // Simulasi Pengiriman Formulir Kontak Utama
+    function handleContactSubmit() {
+      const name = document.getElementById('contactName').value;
+      alert(`Terima kasih, ${name}! Pesan Anda telah diterima. Kami akan merespons dalam 1x24 jam.`);
+      document.getElementById('mainContactForm').reset();
+    }
+
+    // Simulasi Download CV
+    function triggerCvDownload() {
+      const modalEl = document.getElementById('downloadCvModal');
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+
+      // Buat file teks dummy sebagai simulasi download CV bila file PDF eksternal tidak ada
+      const blob = new Blob([
+        "CURRICULUM VITAE - EKSAA\n\n" +
+        "Pekerjaan: Freelancer / Mahasiswa\n" +
+        "Pendidikan: S1 Universitas Indraprastas PGRI\n" +
+        "Keahlian: HTML5, CSS3, Bootstrap 5, JavaScript, UI/UX Design\n" +
+        "Email: eksasupriyadi20@gmail.com\n" +
+        "Alamat: Sukatani, Depok\n\n" +
+        "Portfolio & Proyek:\n" +
+        "- Aplikasi POS & Management Toko\n" +
+        "- PromptGen - AI Prompt Generator\n"
+      ], { type: 'text/plain;charset=utf-8' });
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'CV_Eksaa.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
